@@ -1,0 +1,50 @@
+/* WissKI: layout.css */
+/*=======================================================[ COMMON ]*/
+body {
+    margin: 0;
+}
+/*=======================================================[ CORPUS ]*/
+#wki-border-left {
+    float: left;
+    width: 2em;
+    margin-top: -3em;
+}
+#wki-border-right {
+    float: right;
+    width: 2em;
+    margin-top: -3em;
+}
+#wki-corpus {
+    margin-left: 2em;
+    margin-right: 2em;
+    overflow: hidden;
+    margin-top: -3em;
+    min-height: 400px;
+}
+/*=======================================================[ BLOCKS ]*/
+#wki-block-right {
+    float: right;
+    width: 14%;
+}
+#wki-block-left {
+    float: right;
+    width: 14%;
+    margin-right: 0.5em;
+}
+/*======================================================[ CONTENT ]*/
+#wki-content {
+    margin-right: 34%;
+}
+#wki-content-left {
+}
+#wki-content-right {
+    float: right;
+}
+/*=======================================================[ FOOTER ]*/
+#wki-footer {
+    clear: both;
+    margin-top: 4em;
+}
+#wki-footer-box {
+    float: right;
+}
