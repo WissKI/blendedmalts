@@ -60,6 +60,13 @@
     display: none;
 }
 /* OUTPUT */
+#wki-content div.wisski_textmod_foreign_text_region {
+    /* border: 1px solid rgb(240,240,240); */
+    border: 0 none;
+    margin: 0 0 1em 0;
+    padding: 0 0.3em 0.8em 0.3em;
+    width: 66%;
+}
 #wki-content fieldset.collapsible {
     /* border: 1px solid rgb(240,240,240); */
     border: 0 none;

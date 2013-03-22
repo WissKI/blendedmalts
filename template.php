@@ -40,7 +40,7 @@ function blendedmalts_viewadjust(&$vars, $mode = "node") {
   // Get the node object
   $node = &$vars['node'];
 
-  include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
+  module_load_include('inc', 'wisski_pathbuilder');
   
   $groupid = wisski_pathbuilder_getGroupIDForIndividual(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title));
 
@@ -50,9 +50,12 @@ function blendedmalts_viewadjust(&$vars, $mode = "node") {
   if($mode == "page") {
     $vars['maltedtitle'] = wisski_pathbuilder_generateGroupName($node->title, $groupid);
   } else if($mode == "node") {
-    $block2 = module_invoke('wisski_pathbuilder', 'block', 'view', 0);
-    $block1 = module_invoke('wisski_pathbuilder', 'block', 'view', 1);
-    $vars['maltedcontent'] = '<div id="wki-content-right">' . $block2['content'] . '</div>' . '<div id="wki-content-left">' . $block1['content'] .  '</div>';
+    //$block2 = module_invoke('wisski_pathbuilder', 'block', 'view', 0);
+    //$block1 = module_invoke('wisski_pathbuilder', 'block', 'view', 1);
+    //$block1 = module_invoke('wisski_textmod', 'block', 'view', 0);
+    //$vars['maltedcontent'] = '<div id="wki-content-right">' . $block2['content'] . '</div>' . '<div id="wki-content-left">' . $block1['content'] .  '</div>';
+    $n = wisski_view($node);
+    $vars['maltedcontent'] = $n->content['all']['#value'];
   }              
 }
 
@@ -116,7 +119,7 @@ function blendedmalts_changetab($label, &$vars) {
           . "rdf:type ?x . }";
       
         $rows =  wisski_store_getObj()->wisski_ARCAdapter_getStore()->query($q, 'rows');
-        include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
+        module_load_include('inc', 'wisski_pathbuilder');
 
         $groups = wisski_pathbuilder_getGroups();
 
