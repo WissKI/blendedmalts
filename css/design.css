@@ -62,7 +62,7 @@ body {
     background: url('../pics/bgr_button_hover.png') repeat-x top;
 }
 #wki-sitename {
-    padding: 5px 0px 1px 0px;
+    padding: 15px 0px 1px 0px;
     font-size: 1.8em;
     font-weight: bold;
     color: rgb(128,128,128);
@@ -165,6 +165,17 @@ div.block-inner img {
     display: block;
     width: 100%;
     margin: auto;
+}
+div#block-wisski_pathbuilder-2 ul {
+    list-style-type: none;
+    list-style-image: none;
+    padding: 0;
+    margin: 0;
+}
+div#block-wisski_pathbuilder-2 ul li {
+    list-style-type: none;
+    list-style-image: none;
+    margin-bottom: 10px;
 }
 /*======================================================[ CONTENT ]*/
 #wki-content {
