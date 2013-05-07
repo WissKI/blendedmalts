@@ -1,9 +1,5 @@
 /* WissKI: content.css */
 /*========================================================[ FORMS ]*/
-.wki-left {
-    float: left;
-}
-/*========================================================[ FORMS ]*/
 /* INPUT */
 #wki-content fieldset.wki-fieldset-edit {
     width: 27em;
@@ -42,7 +38,9 @@
     font-size: 1em;
 }
 #wki-content fieldset.wki-fieldset-edit input.wki-button-dupl {
+    position: relative;
     display: block;
+    z-index: 1;
     float: right;
     width: 12px;
     height: 12px;
@@ -93,6 +91,7 @@
 }
 div.wki-data-item {
     margin-bottom: 0.2em;
+    word-wrap: break-word;
 }
 div.wki-data-label {
     display: block;
@@ -104,6 +103,9 @@ div.wki-data-value {
     margin-left: 0.5em;
     font-size: 0.9em;
 }
+div#wki-content-other {
+    clear: both;
+}
 /* BUTTONS */
 .form-submit {
     border: 2px outset rgb(240,240,240);
@@ -112,32 +114,12 @@ div.wki-data-value {
     font-weight: bold;
     color: #606060;
 }
-/* Used for ontology administration */
-#wki-content fieldset .wki-inputbox {
-    margin: 15px 0 20px 15px;
-}
-#wki-content fieldset .wki-inputbox table {
-    border: 0 none;
-    width: auto;
-    margin: 5px 0 10px 0;
-}
-#wki-content fieldset .wki-inputbox table td {
-    padding: 2px 10px 2px 0px;
-}
-#wki-content fieldset input.wki-delete {
-    border: 0 none;
-    display: block;
-    font-size: 0;
-    width: 16px;
-    height: 16px;
-    background: url('../pics/ico_cancel.png') no-repeat;
-}
-#wki-content fieldset input.wki-delete:hover {
-    cursor: pointer;
-}
 /*=======================================================[ TABLES ]*/
 table {
     width: 100%;
+}
+div#wki-content-other table {
+   width: auto;
 }
 table th {
     font-weight: normal;
@@ -183,6 +165,45 @@ table th {
     list-style-type: square;
     list-style-image: url('../pics/ico_leaf.png');
 }
+/*=================================================[ RESULT LISTS ]*/
+ul.wisski_resultlist {
+    list-style-image: none;
+}
+ul.wisski_resultlist li.wisski_resultitem {
+    display: block;
+    overflow: hidden;
+    clear: left;
+    margin-bottom: 15px;
+}
+ul.wisski_resultlist li.wisski_resultitem img {
+    display: block;
+    width: 100px;
+    float: left;
+    margin-right: 15px;
+}
+
+ul.wisski_resulttiles {
+    list-style-image: none;
+    overflow: hidden;
+}
+ul.wisski_resulttiles li.wisski_resultitem {
+    display: block;
+    width: 150px;
+    height: 200px;
+    float: left;
+    text-align: center;
+    border: 1px solid rgb(192,192,192);
+    margin: 0 10px 10px 0;
+    overflow: hidden;
+}
+ul.wisski_resulttiles li.wisski_resultitem img {
+    display: block;
+    width: 120px;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 /*=====================================================[ MESSAGES ]*/
 .messages {
     border: 1px solid #b8d3e5;
