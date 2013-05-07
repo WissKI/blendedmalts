@@ -14,6 +14,9 @@ function blendedmalts_preprocess_page(&$vars, $hook) {
         blendedmalts_viewadjust($vars, "page");
         blendedmalts_removetab('/edit', $vars);
         blendedmalts_changetab('/tedit', $vars);
+        blendedmalts_removetab('/tview', $vars);
+        blendedmalts_removetab('/xview', $vars);
+                
     }
 }
  
@@ -33,16 +36,20 @@ function blendedmalts_preprocess_page(&$vars, $hook) {
  */
 function blendedmalts_preprocess_node_individual(&$vars, $hook) {
     blendedmalts_viewadjust($vars, "node");   
-    blendedmalts_removetab('/edit', $vars);
+//    blendedmalts_removetab('/edit', $vars);
+//    blendedmalts_removetab('/tview', $vars);
+//    blendedmalts_removetab('/xview', $vars);
 }
 
 function blendedmalts_viewadjust(&$vars, $mode = "node") {
   // Get the node object
+
   $node = &$vars['node'];
 
   module_load_include('inc', 'wisski_pathbuilder');
   
-  $groupid = wisski_pathbuilder_getGroupIDForIndividual(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title));
+  if(!empty($node) && !empty($node->title))
+    $groupid = wisski_pathbuilder_getGroupIDForIndividual(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title));
 
   if(!$groupid || !isset($groupid))
     return;
@@ -50,13 +57,17 @@ function blendedmalts_viewadjust(&$vars, $mode = "node") {
   if($mode == "page") {
     $vars['maltedtitle'] = wisski_pathbuilder_generateGroupName($node->title, $groupid);
   } else if($mode == "node") {
-    //$block2 = module_invoke('wisski_pathbuilder', 'block', 'view', 0);
-    //$block1 = module_invoke('wisski_pathbuilder', 'block', 'view', 1);
-    //$block1 = module_invoke('wisski_textmod', 'block', 'view', 0);
-    //$vars['maltedcontent'] = '<div id="wki-content-right">' . $block2['content'] . '</div>' . '<div id="wki-content-left">' . $block1['content'] .  '</div>';
-    $n = wisski_view($node);
-    $vars['maltedcontent'] = $n->content['all']['#value'];
+    if (module_exists('wisski_textmod')) {
+      $n = wisski_view($node);
+      $vars['maltedcontent'] = $n->content['all']['#value'];
+    } else {
+      $block2 = module_invoke('wisski_pathbuilder', 'block', 'view', 0);
+      $block1 = module_invoke('wisski_pathbuilder', 'block', 'view', 1);
+//    drupal_set_message($vars['content']);
+      $vars['maltedcontent'] = '<div id="wki-content-right">' . $block2['content'] . '</div>' . '<div id="wki-content-left">' . $block1['content'] .  '</div><div id="wki-content-other">' . $vars['content'] . '</div>';
+    }
   }              
+
 }
 
 function blendedmalts_removetab($label, &$vars) {
@@ -154,5 +165,26 @@ function blendedmalts_button($element) {
   return $return_string;
 }
 
-?>
+/*
+ * Thanks to fabio at http://www.varesano.net/blog/fabio/displaying%20last%20updated%20or%20changed%20date%20drupal%20node
+ */
+function blendedmalts_node_submitted($node) {
+  $time_unit = 86400; // number of seconds in 1 day => 24 hours * 60 minutes * 60 seconds
+  $threshold = 1;
 
+  if ($node->changed && (round(($node->changed - $node->created) / $time_unit) > $threshold)){ // difference between created and changed times > than threshold
+    return t('Last updated on @changed. <br/>Originally submitted by !username on @created.', array(
+             '@changed' => format_date($node->changed, 'medium'),
+             '!username' => theme('username', $node),
+             '@created' => format_date($node->created, 'small'),
+    ));
+  } else {
+    return t('Submitted by !username on @datetime.',
+      array(
+        '!username' => theme('username', $node),
+        '@datetime' => format_date($node->created),
+    ));
+  }
+}
+
+?>
