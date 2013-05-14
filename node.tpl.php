@@ -58,6 +58,10 @@
     </h2>
   <?php endif; ?>
 
+  <div class="content">
+    <?php print $content; ?>
+  </div>
+
   <?php if ($unpublished): ?>
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
@@ -75,10 +79,6 @@
       <?php endif; ?>
     </div>
   <?php endif; ?>
-
-  <div class="content">
-    <?php print $content; ?>
-  </div>
 
   <?php print $links; ?>
 

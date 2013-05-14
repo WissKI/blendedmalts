@@ -166,16 +166,14 @@ div.block-inner img {
     width: 100%;
     margin: auto;
 }
-div#block-wisski_pathbuilder-2 ul {
-    list-style-type: none;
-    list-style-image: none;
-    padding: 0;
-    margin: 0;
+#block-wisski_pathbuilder-2 div.block-inner ul {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
-div#block-wisski_pathbuilder-2 ul li {
+#block-wisski_pathbuilder-2 div.block-inner li {
     list-style-type: none;
     list-style-image: none;
-    margin-bottom: 10px;
+    margin-bottom: 1em;
 }
 /*======================================================[ CONTENT ]*/
 #wki-content {
@@ -210,10 +208,12 @@ div#block-wisski_pathbuilder-2 ul li {
 }
 /*=========================================================[ META ]*/
 .meta {
-    clear: both;
-    padding: 0 0 2em 0;
+    padding: 0.8em 0 2em 0;
     font-style: italic;
     font-size: 0.8em;
+}
+.meta-individual {
+    clear: both;
 }
 /*=======================================================[ FOOTER ]*/
 #wki-footer {

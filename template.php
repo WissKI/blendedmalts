@@ -46,7 +46,7 @@ function blendedmalts_viewadjust(&$vars, $mode = "node") {
 
   $node = &$vars['node'];
 
-  module_load_include('inc', 'wisski_pathbuilder');
+  include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
   
   if(!empty($node) && !empty($node->title))
     $groupid = wisski_pathbuilder_getGroupIDForIndividual(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title));
@@ -57,15 +57,31 @@ function blendedmalts_viewadjust(&$vars, $mode = "node") {
   if($mode == "page") {
     $vars['maltedtitle'] = wisski_pathbuilder_generateGroupName($node->title, $groupid);
   } else if($mode == "node") {
-    if (module_exists('wisski_textmod')) {
-      $n = wisski_view($node);
-      $vars['maltedcontent'] = $n->content['all']['#value'];
-    } else {
+    
+    // this relies on the output of wisski_view() char by char
+    // so first see there or in alter hooks if something broke
+    
+    if (strpos($vars['content'], '<div id="wki-content-other"></div>') !== FALSE) {
+      
+      // this is for the newest wisski_view() version (39ee47a0ef)
+      // we wrap the div wki-content-other around all other/following content
+      // (e.g. file attachments)
+      $vars['maltedcontent'] = str_replace('<div id="wki-content-other"></div>', '<div id="wki-content-other">', $vars['content']) . '</div>';
+
+    } elseif (strpos($vars['content'], '<div id="wki-content-right">') === FALSE) {
+      
+      // this is for the very old wisski_view() (fbb0f44f66) which effectively
+      // does nothing. construct the wisski content in the old fashion and add
+      // further content.
       $block2 = module_invoke('wisski_pathbuilder', 'block', 'view', 0);
       $block1 = module_invoke('wisski_pathbuilder', 'block', 'view', 1);
-//    drupal_set_message($vars['content']);
       $vars['maltedcontent'] = '<div id="wki-content-right">' . $block2['content'] . '</div>' . '<div id="wki-content-left">' . $block1['content'] .  '</div><div id="wki-content-other">' . $vars['content'] . '</div>';
+    
     }
+
+    // for the version in between we do nothing and let the default theming put
+    // the content together
+
   }              
 
 }
@@ -90,55 +106,57 @@ function blendedmalts_changetab($label, &$vars) {
     if (strpos($tab, '' . $label . '">') === FALSE) {
       $vars['tabs'] .= $tab . "\n";
     } else {
-      $text = $tab;
-      $text = str_replace('Edit', 'Edit Text', $text);
-      $node = $vars['node'];
-      $indiv = $node->title;
-      $obj = wisski_store_getObj();
-      $namespaces = $obj->wisski_ARCAdapter_getNamespaces();
-      $q = "";
-      
-      foreach ($namespaces as $name => $val) {
-        $q .= "PREFIX $name:\t<$val>\n";
-      }  
-      
-      $pred = "ecrm:P129i_is_subject_of";
-  
-      $q .= "SELECT * WHERE { <" . wisski_store_getObj()->wisski_ARCAdapter_delNamespace($indiv) . "> <" 
-        .  wisski_store_getObj()->wisski_ARCAdapter_delNamespace($pred) . "> ?x . }";
-      $rows =  wisski_store_getObj()->wisski_ARCAdapter_getStore()->query($q, 'rows');
-
-      // by Martin: if noo text  found, search via Document group path
-      if (!$rows && module_exists('wisski_textproc')) {
-        $text_uris = wisski_textproc_get_texts(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($indiv));
-        $rows = array(array('x' => $text_uris[0]));
-      }
-      // end by Martin
-
-      $url = parse_url($rows[0]['x']);
-
-      if($rows[0]['x']) {
-        $vars['tabs'] .= '<li><a href="' . url() . drupal_lookup_path('source', ('content/' . wisski_store_getObj()->wisski_ARCAdapter_addNamespace($rows[0]['x'])))  . '/annotext?uri=' . urlencode(wisski_store_getObj()->wisski_ARCAdapter_delnamespace($indiv)) . '">Edit Text</a></li>';
-      } else {
-  
+      if (!module_exists('wisski_textmod')) {
+        $text = $tab;
+        $text = str_replace('Edit', 'Edit Text', $text);
+        $node = $vars['node'];
+        $indiv = $node->title;
+        $obj = wisski_store_getObj();
+        $namespaces = $obj->wisski_ARCAdapter_getNamespaces();
         $q = "";
+        
         foreach ($namespaces as $name => $val) {
           $q .= "PREFIX $name:\t<$val>\n";
-        }
+        }  
+        
+        $pred = "ecrm:P129i_is_subject_of";
     
-        $q .= "SELECT * WHERE { <" . wisski_store_getObj()->wisski_ARCAdapter_delNamespace($indiv) . "> "
-          . "rdf:type ?x . }";
-      
+        $q .= "SELECT * WHERE { <" . wisski_store_getObj()->wisski_ARCAdapter_delNamespace($indiv) . "> <" 
+          .  wisski_store_getObj()->wisski_ARCAdapter_delNamespace($pred) . "> ?x . }";
         $rows =  wisski_store_getObj()->wisski_ARCAdapter_getStore()->query($q, 'rows');
-        module_load_include('inc', 'wisski_pathbuilder');
 
-        $groups = wisski_pathbuilder_getGroups();
+        // by Martin: if noo text  found, search via Document group path
+        if (!$rows && module_exists('wisski_textproc')) {
+          $text_uris = wisski_textproc_get_texts(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($indiv));
+          $rows = array(array('x' => $text_uris[0]));
+        }
+        // end by Martin
 
-        foreach($groups as $group) {
-          $samepart = _wisski_pathbuilder_calculate_group_samepart($group);
-          if($samepart["x" . (floor(count($samepart)/2))] == $rows[0]['x']) {
-            $vars['tabs'] .= '<li><a href="' . url() . 'node/add/individual' . '/annotext/' . $group . '?uri=' . urlencode($indiv) .'">Create Text</a></li>';
-            break;
+        $url = parse_url($rows[0]['x']);
+
+        if($rows[0]['x']) {
+          $vars['tabs'] .= '<li><a href="' . url() . drupal_lookup_path('source', ('content/' . wisski_store_getObj()->wisski_ARCAdapter_addNamespace($rows[0]['x'])))  . '/annotext?uri=' . urlencode(wisski_store_getObj()->wisski_ARCAdapter_delnamespace($indiv)) . '">Edit Text</a></li>';
+        } else {
+    
+          $q = "";
+          foreach ($namespaces as $name => $val) {
+            $q .= "PREFIX $name:\t<$val>\n";
+          }
+      
+          $q .= "SELECT * WHERE { <" . wisski_store_getObj()->wisski_ARCAdapter_delNamespace($indiv) . "> "
+            . "rdf:type ?x . }";
+        
+          $rows =  wisski_store_getObj()->wisski_ARCAdapter_getStore()->query($q, 'rows');
+          include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
+
+          $groups = wisski_pathbuilder_getGroups();
+
+          foreach($groups as $group) {
+            $samepart = _wisski_pathbuilder_calculate_group_samepart($group);
+            if($samepart["x" . (floor(count($samepart)/2))] == $rows[0]['x']) {
+              $vars['tabs'] .= '<li><a href="' . url() . 'node/add/individual' . '/annotext/' . $group . '?uri=' . urlencode($indiv) .'">Create Text</a></li>';
+              break;
+            }
           }
         }
       }

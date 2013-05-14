@@ -69,7 +69,7 @@
                 <?php endif; ?>
 
                 <?php if ($submitted || $terms): ?>
-                <div class="meta">
+                <div class="meta meta-individual">
                     <?php if ($submitted): ?>
                     <div class="submitted"><?php print $submitted; ?></div>
                     <?php endif; ?>
