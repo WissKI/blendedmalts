@@ -1,6 +1,0 @@
-[submodule "colorbox"]
-	path = colorbox
-	url = git@github.com:jackmoore/colorbox.git
-[submodule "slider"]
-	path = slider
-	url = git@github.com:jcobb/basic-jquery-slider.git
