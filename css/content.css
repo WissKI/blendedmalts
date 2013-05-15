@@ -187,20 +187,31 @@ ul.wisski_resulttiles {
 }
 ul.wisski_resulttiles li.wisski_resultitem {
     display: block;
-    width: 150px;
-    height: 200px;
+    width: 130px;
+    height: 170px;
     float: left;
     text-align: center;
     border: 1px solid rgb(192,192,192);
     margin: 0 10px 10px 0;
+    padding-top: 5px;
     overflow: hidden;
+}
+ul.wisski_resulttiles li.wisski_resultitem div.wisski_tileimg {
+    display: block;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    margin: auto;
+    margin-bottom: 5px;
+    border: 1px solid rgb(230,230,230);
 }
 ul.wisski_resulttiles li.wisski_resultitem img {
     display: block;
-    width: 120px;
+    max-width: 120px;
+    max-height: 120px;
     margin: auto;
-    margin-top: 5px;
-    margin-bottom: 5px;
+/*    margin-top: 5px;
+    margin-bottom: 5px;*/
 }
 
 /*=====================================================[ MESSAGES ]*/
