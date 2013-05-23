@@ -45,15 +45,18 @@ body {
     font-size: 1em;
     font-weight: normal;
 }
+#wki-nav-secondary li {
+    float: right;
+    margin-left: 5px;
+    padding: 0;
+}
 #wki-nav-secondary a {
     display: block;
     width: 100px;
-    float: right;
     text-align: center;
     border: 1px solid rgb(187,187,187);
     text-decoration: none;
     color: rgb(64,64,64);
-    margin-left: 5px;
     background: url('../pics/bgr_button.png') repeat-x top;
 }
 #wki-nav-secondary a:hover {
