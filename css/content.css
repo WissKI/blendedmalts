@@ -354,3 +354,30 @@ div.error {
 .node-form .standard {
     clear: none;
 }
+/*=====================================================[ TOOLTIPS ]*/
+
+.form-wisski-tooltip {
+    position: relative;
+    //border-bottom: 1px dotted #C20; cursor: help;
+    color: #f00;    
+}
+
+.form-wisski-tooltip:hover {z-index: 1;}
+
+.form-wisski-tooltip em {
+    display: none;
+    font-style:normal;
+}
+
+.form-wisski-tooltip:hover em {
+    background-color:#fff;
+    color:#333;
+    border:1px solid #cc9;
+    padding:3px;
+    font-size:13px;
+    -moz-box-shadow: 2px 2px 11px #666;
+    -webkit-box-shadow: 2px 2px 11px #666;
+
+    display: block;
+    position: absolute;
+}

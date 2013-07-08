@@ -1,0 +1,203 @@
+/* WissKI: content.css */
+/*========================================================[ FORMS ]*/
+.wki-left {
+    float: left;
+}
+/*========================================================[ FORMS ]*/
+/* INPUT */
+#wki-content fieldset.wki-fieldset-edit {
+    width: 27em;
+    border-right: 1px solid red;
+}
+#wki-content fieldset.wki-fieldset-edit .form-item  {
+    clear: left;
+}
+#wki-content fieldset.wki-fieldset-edit .form-item label {
+    display: block;
+    font-style: italic;
+    font-size: 0.8em;
+    color: rgb(128,128,128);
+    padding-bottom: 0.2em;
+}
+#wki-content fieldset.wki-fieldset-edit .form-item input {
+    margin-left: 0.5em;
+    font-size: 0.9em;
+    border-top: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-bottom: 1px solid rgb(240,240,240);
+    background: rgb(240,240,240)
+}
+#wki-content fieldset.wki-fieldset-edit .form-item input:focus {
+    background: rgb(255,255,255)
+}
+#wki-content fieldset.wki-fieldset-edit .form-radios .form-item {
+    clear: none;
+    float: left;
+    margin-top: -1em;
+    margin-right: 1em;
+}
+#wki-content fieldset.wki-fieldset-edit .form-radios .form-item label {
+    font-style: normal;
+    font-size: 1em;
+}
+#wki-content fieldset.wki-fieldset-edit input.wki-button-dupl {
+    display: block;
+    float: right;
+    width: 12px;
+    height: 12px;
+    padding: 2px;
+    border: 1px outset rgb(222,222,222);
+    margin-top: 13px;
+    outline: none;
+}
+#wki-content fieldset.wki-fieldset-edit input.wki-button-dupl:hover {
+}
+#wki-content fieldset.wki-fieldset-edit input.wki-button-dupl:active {
+    border:0 none;
+}
+#wki-content fieldset.wki-fieldset-edit div.wki-no-label div label {
+    display: none;
+}
+/* OUTPUT */
+#wki-content fieldset.collapsible {
+    /* border: 1px solid rgb(240,240,240); */
+    border: 0 none;
+    margin: 0 0 1em 0;
+    padding: 0 0.3em 0.8em 0.3em;
+    width: 100%;
+}
+#wki-content fieldset.collapsible fieldset {
+    margin-top: 0.6em;
+    border-right: 0 none;
+    border-bottom: 0 none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+#wki-content fieldset.collapsible legend {
+    padding: 0;
+    margin: 0;
+}
+#wki-content fieldset.collapsible legend a {
+    font-size: 1em;
+    font-weight: normal;
+    font-style: italic;
+    color: rgb(128,128,128);
+}
+div.wki-data-item {
+    margin-bottom: 0.2em;
+}
+div.wki-data-label {
+    display: block;
+    font-style: italic;
+    font-size: 0.8em;
+    color: rgb(128,128,128);
+}
+div.wki-data-value {
+    margin-left: 0.5em;
+    font-size: 0.9em;
+}
+/* BUTTONS */
+.form-submit {
+    border: 2px outset rgb(240,240,240);
+    background: rgb(240,240,240);
+    font-size: 1em;
+    font-weight: bold;
+    color: #606060;
+}
+/* Used for ontology administration */
+#wki-content fieldset .wki-inputbox {
+    margin: 15px 0 20px 15px;
+}
+#wki-content fieldset .wki-inputbox table {
+    border: 0 none;
+    width: auto;
+    margin: 5px 0 10px 0;
+}
+#wki-content fieldset .wki-inputbox table td {
+    padding: 2px 10px 2px 0px;
+}
+#wki-content fieldset input.wki-delete {
+    border: 0 none;
+    display: block;
+    font-size: 0;
+    width: 16px;
+    height: 16px;
+    background: url('../pics/ico_cancel.png') no-repeat;
+}
+#wki-content fieldset input.wki-delete:hover {
+    cursor: pointer;
+}
+/*=======================================================[ TABLES ]*/
+table {
+    width: 100%;
+}
+table th {
+    font-weight: normal;
+    font-size: 0.8em;
+    font-style: italic;
+}
+/* PATHBUILDER */
+#wisskiTemplate-overview {
+}
+#wisskiTemplate-overview  td {
+    vertical-align: top;
+}
+#wisskiTemplate-overview a.tabledrag-handle {
+    padding: 0 0.4em 0 0;
+    margin-top: -0.2em;
+    margin: -0.2em 0 0 0;
+}
+#wisskiTemplate-overview .indentation {
+    width: 7px;
+}
+#wisskiTemplate-overview .wki-col1 {
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+#wisskiTemplate-overview .wki-col2 {
+    font-size: 0.8em;
+}
+/*=========================================================[ TEXT ]*/
+#wki-content  a {
+    color: rgb(195,79,9);
+    text-decoration: none;
+}
+#wki-content p {
+}
+#wki-content-left p {
+    margin: 0 0 0.3em 0;
+    line-height: 1.5em;
+    text-align: justify;
+}
+#wki-content ul {
+}
+#wki-content ul li {
+    list-style-type: square;
+    list-style-image: url('../pics/ico_leaf.png');
+}
+/*=====================================================[ MESSAGES ]*/
+.messages {
+    border: 1px solid #b8d3e5;
+    margin: 0.75em 0pt 0.75em 0pt;
+    padding: 0.5em 1em 0.5em 1em;
+}
+div.status {
+    color: #33a333;
+    border-color: #c7f2c8;
+}
+div.warning {
+    margin: 0.75em 0pt 0.75em 0pt;
+    padding: 0.5em 1em 0.5em 1em;
+}
+div.error {
+    margin: 0.75em 0pt 0.75em 0pt;
+    padding: 0.5em 1em 0.5em 1em;
+}
+/*=======================================================[ DRUPAL ]*/
+.profile {
+    clear: none;
+}
+.node-form .standard {
+    clear: none;
+}

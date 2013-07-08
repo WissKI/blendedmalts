@@ -223,4 +223,41 @@ function blendedmalts_fieldset($element) {
   return '<fieldset' . drupal_attributes($element['#attributes']) . '>' . ($element['#title'] ? '<legend>' . $element['#title'] . '</legend>' : '') . (isset($element['#description']) && $element['#description'] ? '<div class="description">' . $element['#description'] . '</div>' : '') . (!empty($element['#children']) ? $element['#children'] : '') . (isset($element['#value']) ? $element['#value'] : '') . "</fieldset>\n";
 }
 
+function blendedmalts_form_element($element, $value) {
+// This is also used in the installer, pre-database setup.
+  $t = get_t();
+  
+  $output = '<div class="form-item"';
+  if (!empty($element['#id'])) {
+    $output .= ' id="' . $element['#id'] . '-wrapper"';
+  }
+  $output .= ">\n";
+  $required = !empty($element['#required']) ? '<span class="form-required" title="' . $t('This field is required.') . '">*</span>' : '';
+
+  global $base_url;
+
+//  $help = !empty($element['#attributes']['wisski_help']) ? '<span class="form-wisski-tooltip"><img src="' . $base_url . '/' . path_to_theme() . '/pics/help_small.png" alt="?" width="15px"/><em>' . $t($element['#attributes']['wisski_help']) . '</em></span>' : '';
+  $help = !empty($element['#attributes']['wisski_help']) ? '<span class="form-wisski-tooltip">?<em>' . $t($element['#attributes']['wisski_help']) . '</em></span>' : '';
+                
+  if (!empty($element['#title'])) {
+    $title = $element['#title'];
+    if (!empty($element['#id'])) {
+      $output .= ' <label for="' . $element['#id'] . '">' . $t('!title: !required !help', array('!title' => filter_xss_admin($title), '!required' => $required, '!help' => $help)) . "</label>\n";
+    }
+    else {
+      $output .= ' <label>' . $t('!title: !required !help', array('!title' => filter_xss_admin($title), '!required' => $required, '!help' => $help)) . "</label>\n";
+    }
+  }
+             
+  $output .= " $value\n";
+                  
+  if (!empty($element['#description'])) {
+    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
+  }
+                          
+  $output .= "</div>\n";
+                            
+  return $output;
+}
+
 ?>
