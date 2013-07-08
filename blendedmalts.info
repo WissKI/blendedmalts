@@ -20,6 +20,13 @@ regions[footerbox]   = Footer Box
 stylesheets[all][]   = css/layout.css
 stylesheets[all][]   = css/design.css
 stylesheets[all][]   = css/content.css
+stylesheets[all][]   = colorbox/example1/colorbox.css
+stylesheets[all][]   = slider/bjqs.css
+
+; JS Scripts
+scripts[] = colorbox/jquery.colorbox.js
+scripts[] = slider/js/bjqs-1.3.js
+scripts[] = init.js
 
 ; Config Features
 features[] = logo

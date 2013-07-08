@@ -20,7 +20,7 @@ body {
 }
 #wki-logo {
     float: left;
-    padding-right: 20px;
+    padding-right: 15px;
 }
 #wki-nav {
     float: right;
@@ -29,7 +29,7 @@ body {
 #wki-nav-primary {
     display: block;
     font-size: 1em;
-    margin-top: 0.4em;
+    margin-top: 17px;
     font-weight: normal;
 }
 #wki-nav-primary a {
@@ -65,7 +65,7 @@ body {
     background: url('../pics/bgr_button_hover.png') repeat-x top;
 }
 #wki-sitename {
-    padding: 15px 0px 1px 0px;
+    padding: 19px 0px 1px 0px;
     font-size: 1.8em;
     font-weight: bold;
     color: rgb(128,128,128);
@@ -131,6 +131,9 @@ ul.primary li.active a {
 #wki-block-right {
     padding: 1em 1em 0 0;
 }
+#wki-block-right div.block-inner {
+    word-wrap: break-word;
+}
 #wki-block-right > div, #wki-block-left > div {
     margin-bottom: 0.5em;
 }
@@ -190,7 +193,7 @@ div.block-inner img {
     margin: 0 0 0 1em;
     padding: 0.5em;
     border-left: 1px solid rgb(240,240,240);
-    max-width: 25%;
+    max-width: 30%;
 }
 #wki-nodeinfo {
     clear: both;
@@ -234,3 +237,8 @@ div.block-inner img {
 #wki-footer-box {
     padding-left: 2em;
 }
+#wki-footer-box div {
+    text-align: right;
+    border: 0 !important;
+}
+

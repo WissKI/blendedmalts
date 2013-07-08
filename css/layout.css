@@ -38,6 +38,7 @@ body {
 }
 #wki-content-right {
     float: right;
+    overflow: hidden;
 }
 /*=======================================================[ FOOTER ]*/
 #wki-footer {
