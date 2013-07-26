@@ -23,16 +23,16 @@ body {
 /*=======================================================[ BLOCKS ]*/
 #wki-block-right {
     float: right;
-    width: 14%;
+    width: 15%;
 }
 #wki-block-left {
     float: right;
-    width: 14%;
+    width: 15%;
     margin-right: 0.5em;
 }
 /*======================================================[ CONTENT ]*/
 #wki-content {
-    margin-right: 34%;
+    margin-right: 30%;
 }
 #wki-content-left {
 }
