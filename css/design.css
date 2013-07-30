@@ -172,15 +172,42 @@ div.block-inner img {
     width: 100%;
     margin: auto;
 }
-#block-wisski_images-0 div.block-inner ul {
+
+div.block-inner div.wisski-image-container {
     padding-left: 0.5em;
     padding-right: 0.5em;
+}
+
+#block-wisski_images-0 div.block-inner ul {
+    padding-left: 0px; //0.5em;
+    padding-right: 0px; //0.5em;
 }
 #block-wisski_images-0 div.block-inner li {
     list-style-type: none;
     list-style-image: none;
     margin-bottom: 1em;
 }
+/* Switch off webkit-min-content because otherwise big content can enlarge the fieldset */
+#block-wisski_images-0 div.block-inner li .wisski-images-exif-fieldset {
+    min-width: 0;
+    overflow:hidden;
+    // only way to get it working in ff and chrome
+    display:table-column;
+}
+#block-wisski_images-0 .wisski-images-exif-fieldset div.wki-data-value {
+    word-wrap: break-word;
+}
+#block-wisski_images-0 div.block-inner li .wisski-image-subtitle {
+    word-wrap: break-word;
+    padding-left: 0.5em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-style: italic;
+    // only way to get it working in ff and chrome
+    display:table-column;
+}
+
+
 /*======================================================[ CONTENT ]*/
 #wki-content {
     padding: 1em;
@@ -194,6 +221,10 @@ div.block-inner img {
     padding: 0.5em;
     border-left: 1px solid rgb(240,240,240);
     max-width: 30%;
+}
+/* Switch off webkit-min-content because otherwise big content can enlarge the fieldset */
+#wki-content-right .wki-fieldset-view {
+    min-width: 0%;
 }
 #wki-nodeinfo {
     clear: both;
