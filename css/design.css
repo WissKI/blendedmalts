@@ -193,6 +193,10 @@ div.block-inner div.wisski-image-container {
     overflow:hidden;
     // only way to get it working in ff and chrome
     display:table-column;
+    padding-bottom: 0em;
+}
+#block-wisski_images-0 div.block-inner li .wisski-images-exif-fieldset legend {
+    font-size: 0.8em;
 }
 #block-wisski_images-0 .wisski-images-exif-fieldset div.wki-data-value {
     word-wrap: break-word;
@@ -203,6 +207,7 @@ div.block-inner div.wisski-image-container {
     padding-top: 2px;
     padding-bottom: 2px;
     font-style: italic;
+    font-size: 0.9em;
     // only way to get it working in ff and chrome
     display:table-column;
 }
