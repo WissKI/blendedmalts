@@ -63,6 +63,14 @@ fieldset {
     display: inline;
     border: 1px solid rgb(200,200,200);
 }
+#wki-content fieldset.wki-fieldset-edit div[id*='-weight-'] {
+    position: relative;
+    float: right;
+    display: inline;
+    clear: right;
+    border: 1px solid rgb(200,200,200);
+}
+
 #wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] {
     display: relative;
     float: left;
@@ -77,6 +85,44 @@ fieldset {
     float: left;
     clear:left
 }
+
+#wki-content table[id*='wki_drag_table'] {
+    border: none;
+}
+
+#wki-content table[id*='wki_drag_table'] tbody {
+    border: none;
+}
+
+#wki-content table[id*='wki_drag_table'] tbody tr.even, tr.odd {
+    border: none;
+    background-color: #fff;
+}
+
+#wki-content table[id*='wki_drag_table'] tbody tr.drag-previous {
+    border: none;
+    background-color: #ffd;
+}
+
+#wki-content table[id*='wki_drag_table'] tbody tr td {
+    border: none;
+}
+
+#wki-content table[id*='wki_drag_table'] tbody tr td div.form-item {
+//    float:left;
+//    clear: none;
+}
+
+#wki-content table[id*='wki_drag_table'] tbody tr td a.tabledrag-handle {
+    float:right;
+//    clear: none;
+}
+
+#wki-content table[id*='wki_drag_table'] thead {
+    display:none;
+}
+
+
 
 #wki-content fieldset.wki-fieldset-edit div#autocomplete {
     margin: 0px 0 0 154px !important;
