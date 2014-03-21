@@ -32,9 +32,7 @@ body {
 }
 /*======================================================[ CONTENT ]*/
 #wki-content {
-//    margin-right: 31%;
-    overflow:auto;
-    overflow-wrap: inherit;
+    margin-right: 31%;
 }
 #wki-content-left {
 }
