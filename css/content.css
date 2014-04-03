@@ -6,7 +6,8 @@ fieldset {
 /* INPUT */
 #wki-content fieldset.wki-fieldset-edit {
     position: relative;
-    padding: 5px 5px 0 5px;
+    padding: 5px 0px 0 5px;
+    margin-top: -10px;
     margin: 0;
     min-width: -webkit-min-content;
     display: -moz-inline-stack;
@@ -175,6 +176,12 @@ fieldset {
 #wki-content fieldset.menu-item-form {
      clear: left;
 }
+/*
+#wki-content table[id*='wki_drag_table'] .form-item label:nth-of-type(2) {
+    display: none !important;
+}
+*/
+
 
 /*
 #wki-content fieldset.wki-fieldset-edit {
@@ -237,7 +244,7 @@ fieldset {
 #wki-content fieldset.wki-fieldset-edit input.wki-button-dupl:active {
     border:0 none;
 }
-#wki-content fieldset.wki-fieldset-edit div.wki-no-label div label {
+#wki-content table[id*='wki_drag_table'] {
     display: none;
 }
 */
@@ -246,7 +253,7 @@ fieldset {
     position: relative;
     border: 0 none;
     margin: 0 0 1em 0;
-    padding: 0 0.3em 0.8em 0.3em;
+    padding: 0 0 0.8em 0.3em;
     /* width: 100%; */
 }
 #wki-content fieldset.wki-fieldset-view div.wki-data-value {
@@ -261,7 +268,7 @@ fieldset {
     padding-bottom: 0;
     margin-bottom: 15px;
     margin-left: 8px;
-    margin-right: 5px;
+//    margin-right: 5px;
     clear: left;
 }
 #wki-content fieldset.wki-fieldset-view legend {
@@ -290,6 +297,7 @@ div.wki-data-value {
     margin-left: 0.5em;
     font-size: 0.9em;
 }
+
 div#wki-content-other {
     clear: both;
 }
@@ -317,7 +325,9 @@ table th {
 #wisski_pathbuilder-overview tr td:first-child {
     white-space: nowrap;
     padding: 2px 5px 0 0px;
+    min-width: 180px;
 }
+
 #wisski_pathbuilder-overview div.indentation {
     width: 10px;
 }

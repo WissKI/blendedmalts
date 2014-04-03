@@ -9,7 +9,12 @@
 </head>
 <body class="<?php print $body_classes; ?>">
 <!-- CORPUS -->
-<div id="wki-bodywrap">
+        <?php
+            if(strpos($content, '<div id="wki-content-left"></div>') !== FALSE)
+                print '<div id="wki-bodywrap" class="wki-no-text">';
+            else
+                print '<div id="wki-bodywrap">';
+        ?>
     <!-- HEADER -->
     <div id="wki-header">
         <div id="wki-nav">
@@ -52,29 +57,28 @@
             <?php print $top ?>
         </div>
         <!-- /TOPBAR -->
-        <!-- RIGHTBLOCK -->
-        <div id="wki-block-right">
-            <?php print $right; ?>
-        </div>
-        <!-- /RIGHTBLOCK -->
-        <!-- LEFTBLOCK -->
-        <div id="wki-block-left">
-        <?php if ( $pictures ): ?>
-            <div id="wki-nodeimages">
-                <div class="block-inner">
-                    <h2 class="title">Images</h2>
-                    <?php print $pictures ?>
-                </div>
+        <!-- Content Wrap -->
+        <div id="wki-content-wrap">
+            <!-- RIGHTBLOCK -->
+            <div id="wki-block-right">
+                <?php print $right; ?>
             </div>
-        <?php endif; ?>
-            <?php print $left; ?>
+            <!-- /RIGHTBLOCK -->
+            
+            <!-- LEFTBLOCK -->
+            <div id="wki-block-left">
+                <?php print $left; ?>
+            </div>
+            <!-- /LEFTBLOCK -->
+            
+            <!-- CONTENT -->
+            <div id="wki-content">
+                    <?php print $content; ?>
+            </div>
+            <!-- /CONTENT -->
+            
         </div>
-        <!-- /LEFTBLOCK -->
-        <!-- CONTENT -->
-	<div id="wki-content">
-	    <?php print $content; ?>
-        </div>
-        <!-- /CONTENT -->
+        <!-- /Content Wrap -->
     </div>
     <!-- /CORPUS -->
     <!-- FOOTER -->
@@ -87,7 +91,7 @@
             <?php print $footer; ?>
         </div>
     </div>
-    <!-- /FOOTER -->
+<!-- /FOOTER -->
 </div>
 <!-- /BODYWRAP -->
 <?php print $closure; ?>

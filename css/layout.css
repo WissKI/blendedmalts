@@ -18,24 +18,71 @@ body {
     margin-left: 2em;
     margin-right: 2em;
     overflow: hidden;
+    position: relative;
     margin-top: -3em;
+    display: block;
 }
+#wki-corpus:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+/*=================================================[ CONTENT WRAP ]*/
+#wki-content-wrap {
+    position: relative;
+    padding: 0.5em 1em 0 1em;
+}
+
 /*=======================================================[ BLOCKS ]*/
+
 #wki-block-right {
+    position: relative;
+    width: 14.8%;
+//    margin-left: -40px;
+//    margin-top: 0.5em;
+//    padding:  1em 1em 1em 1em;
     float: right;
-    width: 15%;
+    margin-left: 0.2%;
+//    margin-right: 0.1%;
+//    margin-left: 84.6%;
+    z-index: 1000;
 }
 #wki-block-left {
+    position: relative;
     float: right;
-    width: 15%;
-    margin-right: 0.5em;
+    width: 14.8%;
+//    margin-top: 0.5em;
+//    padding:  1em 1em 1em 1em;
+    margin-left: 0.2%;
+//    margin-right: 0.1%;
+//    right: 0px;
+//    margin-left: 69.2%;
+//    margin-right: 15%;
+//    margin-right: 0.5em;
+//    padding-right: 0.5em;
+    z-index: 1000;
 }
 /*======================================================[ CONTENT ]*/
+
 #wki-content {
-    margin-right: 31%;
+    overflow: auto;
+//    margin-right: 31%;
+    position: relative;
+//    margin-left: 0.1%;
+    top: -7px;
+    margin-right: 0.1%;
+//    padding: 1em 1em 1em 1em;
+//    padding: 1em 1em 1em 1em;
+//    max-width: 69.6%;
+//    width: auto;
+//    float: left;
+    word-wrap: break-word;
 }
+
 #wki-content-left {
 }
+
 #wki-content-right {
     float: right;
     overflow: hidden;
@@ -43,7 +90,7 @@ body {
 /*=======================================================[ FOOTER ]*/
 #wki-footer {
     clear: both;
-    margin-top: 4em;
+//    margin-top: 4em;
 }
 #wki-footer-box {
     float: right;
