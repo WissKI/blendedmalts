@@ -9,7 +9,7 @@ body {
     background-color: rgb(240,167,26);
     font-family: sans-serif;
     font-size: 0.8em;
-    min-height: 100%;
+//    min-height: 100%;
 }
 #wki-bodywrap {
     background-color: rgb(255,255,255);
@@ -21,6 +21,7 @@ body {
 #wki-header {
     background: url('../pics/bgr_headfade.png') repeat-x bottom;
     padding: 1.5em 3em 4em 3em;
+    overflow: auto;
 }
 
 #wki-header-con {
@@ -291,7 +292,7 @@ div.block-inner div.wisski-image-container {
     color: rgb(240,240,240);
 //    bottom: 0px;
 //    margin-top: -3em;
-
+    min-height: 100px;
 }
 #wki-footer a {
     color:rgb(240,240,240);
