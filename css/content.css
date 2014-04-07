@@ -27,6 +27,7 @@ fieldset {
 #wki-content fieldset.wki-fieldset-edit fieldset.wki-fieldset-edit {
     margin: 0px 5px 10px 10px;
     clear: left;
+    padding-right: 5px;
 }
 
 #wki-content fieldset.wki-fieldset-edit input.wki-button-dupl {
@@ -94,7 +95,15 @@ fieldset {
     clear:left
 }
 #wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] + input[type=image] {
-    margin-top: 9px;
+    margin: 9px 1px 0 1px;
+}
+
+#wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] + input[type=image] + input + input[type=image] {
+    margin: 9px 1px 0 1px;
+}
+
+#wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] + input[type=image] + input + input[type=image] + input[type=image] {
+    margin: 9px 1px 0 1px;
 }
 
 #wki-content div[id*='wisski_pathbuilder_ontotext_wrapper_'] {
