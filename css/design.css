@@ -106,6 +106,7 @@ body {
 /*=======================================================[ TOPBAR ]*/
 #wki-topbar {
     padding: 1em 1em 0em 1em;
+    position: relative;
 }
 #wki-title {
     display: block;
