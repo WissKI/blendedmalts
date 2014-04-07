@@ -102,7 +102,7 @@ fieldset {
     margin: 9px 1px 0 1px;
 }
 
-#wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] + input[type=image] + input + input[type=image] + input[type=image] {
+#wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] fieldset.wki-fieldset-edit + input[type=image] {
     margin: 9px 1px 0 1px;
 }
 
