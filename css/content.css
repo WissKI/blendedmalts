@@ -95,16 +95,28 @@ fieldset {
     clear:left
 }
 #wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] + input[type=image] {
-    margin: 9px 1px 0 1px;
+    margin: 9px 0px 0 0px;
 }
 
 #wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] + input[type=image] + input + input[type=image] {
-    margin: 9px 1px 0 1px;
+    margin: 9px 0px 0 0px;
 }
 
 #wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] fieldset.wki-fieldset-edit + input[type=image] {
-    margin: 9px 1px 0 1px;
+    margin: 9px 0px 0 0px;
 }
+
+#wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] table td {
+    vertical-align:top;
+}
+
+#wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] > table[id*='wki_drag_table'] > tbody > tr > td:first-child > a {
+    margin-top: 0px;
+}
+
+#wki-content div[id*='wisski_pathbuilder_ontogroup_wrapper_'] > table[id*='wki_drag_table'] > tbody > tr > td > input[id*='wisski-pathbuilder-undupl-button'] {
+    margin-top: 8px;
+} 
 
 #wki-content div[id*='wisski_pathbuilder_ontotext_wrapper_'] {
     display: relative;
