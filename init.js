@@ -8,8 +8,8 @@ $(document).ready(function(){
 	});
 	*/
 	// Colorbox
-	$('div#block-wisski_pathbuilder-2 a.wisski-image').attr('rel', 'group1');
-	$('div#block-wisski_pathbuilder-2 a.wisski-image').colorbox({
+	$('div#block-wisski_images-0 a.wisski-image').attr('rel', 'group1');
+	$('div#block-wisski_images-0 a.wisski-image').colorbox({
 		rel:"group1",
 		transition:"elastic",
 		width:"75%",
