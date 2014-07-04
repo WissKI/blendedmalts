@@ -46,7 +46,7 @@ function blendedmalts_viewadjust(&$vars, $mode = "node") {
 
   $node = &$vars['node'];
 
-  include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
+  module_load_include('inc', 'wisski_pathbuilder');
   
   if(!empty($node) && !empty($node->title))
     $groupid = wisski_pathbuilder_getGroupIDForIndividual(wisski_store_getObj()->wisski_ARCAdapter_delNamespace($node->title));
@@ -147,8 +147,8 @@ function blendedmalts_changetab($label, &$vars) {
             . "rdf:type ?x . }";
         
           $rows =  wisski_store_getObj()->wisski_ARCAdapter_getStore()->query($q, 'rows');
-          include_once('sites/all/modules/wisski_pathbuilder/wisski_pathbuilder.inc');
-
+          module_load_include('inc', 'wisski_pathbuilder');
+          
           $groups = wisski_pathbuilder_getGroups();
 
           foreach($groups as $group) {
