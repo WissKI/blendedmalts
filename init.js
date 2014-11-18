@@ -8,6 +8,7 @@ $(document).ready(function(){
 	});
 	*/
 	// Colorbox
+	/*
 	$('div#block-wisski_images-0 a.wisski-image').attr('rel', 'group1');
 	$('div#block-wisski_images-0 a.wisski-image').colorbox({
 		rel:"group1",
@@ -15,5 +16,6 @@ $(document).ready(function(){
 		width:"75%",
 		height:"75%"
 	});
+	*/
 });
 
